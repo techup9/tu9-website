@@ -507,7 +507,7 @@ textarea::-webkit-input-placeholder {
 -------------------------------------------------------------- */
 .sidebar_outer_logo .logo_main,
 .top_panel_wrap .logo_main{
-  height:30px;
+  /*height:30px;*/
 }
 
 .top_panel_wrap_inner {
