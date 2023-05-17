@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1000px" height="600px" viewBox="0 0 1000 600" enable-background="new 0 0 1000 600" xml:space="preserve">
+<g display="none">
+	<defs>
+		<rect id="SVGID_1_" x="634" y="213" width="153" height="173"/>
+	</defs>
+	<clipPath id="SVGID_2_" display="inline">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<g display="inline" clip-path="url(#SVGID_2_)">
+		<image overflow="visible" width="153" height="173" xlink:href="167BBE53.jpg"  transform="matrix(1 0 0 1 634 213)">
+		</image>
+	</g>
+</g>
+<g>
+	<polygon fill="#83F1F0" points="350.274,286.739 589.607,423.612 471.853,493.194 351.038,423.612 	"/>
+</g>
+<g>
+	<polygon fill="#83DCF0" points="584.637,144.518 589.225,423.995 706.216,350.588 703.156,213.335 	"/>
+</g>
+<g>
+	<polygon fill="#51D8DE" points="465.926,216.777 587.124,280.048 585.021,144.518 	"/>
+</g>
+<g>
+	<polygon fill="#51D8EA" points="467.073,354.124 587.071,279.571 589.369,423.229 	"/>
+</g>
+<g>
+	<polygon fill="#84F1C4" points="350.274,287.505 347.214,147.575 464.207,79.521 585.021,145.281 	"/>
+	<polyline fill="#84F1C4" points="464.206,79.521 585.021,144.518 486.283,176.543 	"/>
+</g>
+<g>
+	<polygon fill="#4FEBC4" points="467.264,354.03 465.735,217.157 351.038,286.739 	"/>
+	<polyline fill="#4FEBC4" points="465.926,216.777 350.274,287.505 467.073,354.124 	"/>
+</g>
+<g>
+	<polygon fill="#3FD4E0" points="467.264,354.03 465.735,216.774 586.931,279.858 	"/>
+	<polyline fill="#51D8EA" points="587.071,279.571 590.125,423.625 467.264,354.03 587.071,279.571 465.925,216.777 
+		479.558,248.305 	"/>
+</g>
+<text transform="matrix(1 0 0 1 378 312)" display="none" font-family="'Gotham-Book'" font-size="100">TechUp9</text>
+<path fill="#51D8DE" d="M465.925,216.777"/>
+<path fill="#51D8DE" d="M465.735,216.774"/>
+<polyline fill="#51D8DE" points="584.637,144.518 465.735,216.774 541.334,255.832 "/>
+<polyline fill="#83F1F0" points="542.25,396.625 590.125,423.625 547.875,448.25 "/>
+<polyline fill="#83DCF0" points="589.938,415.844 590.125,423.625 597.219,419 "/>
+<polyline fill="#3FD4E0" points="465.735,216.774 587.071,279.571 490.333,304.334 "/>
+</svg>
