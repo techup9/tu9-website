@@ -1,0 +1,174 @@
+/* Styles for the React replacements of the legacy jQuery plugins.
+   Theme styles live untouched in ./legacy. */
+
+/* Header logo (was an inline `height: 100% !important`). */
+.top_panel_wrap .logo .header_logo {
+  height: 100% !important;
+}
+
+/* Responsive menu (was a jQuery slideToggle). */
+.menu_main_responsive.is-open {
+  display: block;
+}
+
+/* ---------- Hero slider (replaces Revolution Slider) ---------- */
+.hero_slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.hero_slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 500ms ease, visibility 0s linear 500ms;
+}
+
+.hero_slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  transition: opacity 500ms ease, visibility 0s;
+}
+
+.hero_grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+}
+
+.hero_layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
+  white-space: nowrap;
+}
+
+.hero_layer img {
+  display: block;
+  max-width: none;
+}
+
+.hero_anim {
+  animation-fill-mode: both;
+}
+
+.hero_slide:not(.is-active) .hero_anim {
+  animation-play-state: paused;
+}
+
+.hero_anim--fade {
+  animation-name: hero-fade;
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.hero_anim--zoom {
+  animation-name: hero-zoom;
+  animation-duration: 600ms;
+  animation-timing-function: linear;
+}
+
+.hero_anim--rise {
+  animation-name: hero-rise;
+  animation-duration: 500ms;
+  animation-timing-function: linear;
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; }
+}
+
+@keyframes hero-zoom {
+  from { opacity: 0; transform: scale(1.5); }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(50px); }
+}
+
+.hero_bullets {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+  transform: translateX(-50%);
+}
+
+.hero_bullets .tp-bullet {
+  position: relative;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ---------- Services carousel (replaces Owl Carousel) ---------- */
+.services_carousel {
+  position: relative;
+  width: 100%;
+}
+
+.services_carousel_stage {
+  display: grid;
+  padding: 0 30px;
+  touch-action: pan-y;
+}
+
+.services_carousel_item {
+  grid-area: 1 / 1;
+  min-width: 0;
+  visibility: hidden;
+}
+
+.services_carousel_item.is-active {
+  visibility: visible;
+}
+
+.services_carousel_dots {
+  margin-top: 10px;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.services_carousel_dot {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.services_carousel_dot span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 5px 7px;
+  background: #d6d6d6;
+  border-radius: 30px;
+  transition: opacity 200ms ease;
+}
+
+.services_carousel_dot.active span,
+.services_carousel_dot:hover span {
+  background: #869791;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero_anim,
+  .services_carousel_item.animated {
+    animation: none !important;
+  }
+
+  .hero_slide,
+  .hero_slide.is-active {
+    transition: none;
+  }
+}
