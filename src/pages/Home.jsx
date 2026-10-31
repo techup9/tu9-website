@@ -6,9 +6,9 @@ import { usePage } from '../hooks/usePage.js';
 const BODY_CLASS =
   'home-page home page body_style_wide body_filled article_style_stretch top_panel_show top_panel_above sidebar_hide sidebar_outer_hide';
 
-function WhatWeDo({ id }) {
+function WhatWeDo() {
   return (
-    <section className="light_section" id={id}>
+    <section className="light_section">
       <div className="container">
         <div className="content_wrap">
           <div className="sc_call_to_action sc_call_to_action_style_1 sc_call_to_action_align_center responsive_margins sc_no_image">
@@ -39,7 +39,7 @@ function WhatWeDo({ id }) {
 
 function OurServices() {
   return (
-    <section className="grey_section">
+    <section className="grey_section" id="our-services">
       <div className="container">
         <div className="content_wrap">
           <div className="sc_testimonials sc_testimonials_style_testimonials-4 sc_slider_swiper swiper-slider-container sc_slider_nopagination sc_slider_controls sc_slider_controls_bottom sc_slider_height_auto responsive_margins">
@@ -109,7 +109,7 @@ export default function Home() {
           <div className="content">
             <article className="post_item post_item_single page type-page">
               <div className="post_content">
-                <WhatWeDo id="our-services" />
+                <WhatWeDo />
                 <OurServices />
                 <WhatWeDo />
                 <OurValues />
