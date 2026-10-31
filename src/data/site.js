@@ -1,8 +1,8 @@
 export const heroSlides = [
   {
     image: { src: '/images/13.jpg', width: 1920, height: 1082, offsetX: 0 },
-    title: ['AI-Powered', 'Apps'],
-    text: ['We build LLM apps, agents', 'and copilots for your business'],
+    title: ['Engineering', 'that scales'],
+    text: ['Software, cloud and data consulting', 'for growing businesses'],
     layers: {
       title: { x: -343, y: -95 },
       text: { x: -344, y: 46, delay: 850 },
@@ -11,8 +11,8 @@ export const heroSlides = [
   },
   {
     image: { src: '/images/Depositphotos_42929589_original.jpg', width: 2300, height: 1533, offsetX: -100 },
-    title: ['AI Strategy to', 'Production'],
-    text: ['Expert AI consulting to take', 'you from idea to impact'],
+    title: ['From idea to', 'production'],
+    text: ['Senior engineers who design,', 'build and run your platform'],
     layers: {
       title: { x: 344, y: -90 },
       text: { x: 344, y: 56, delay: 1100 },
@@ -21,63 +21,65 @@ export const heroSlides = [
   },
 ];
 
-export const whatWeDo =
-  'We help businesses put Generative AI and Large Language Models to work. From identifying the right use cases to shipping secure, production-grade AI apps, our team turns AI potential into measurable results.';
+export const about = {
+  headline: 'Technology partners for software-driven businesses.',
+  text: 'We help startups and established companies design, build and run the software their business depends on - across cloud, applications, data and analytics.',
+};
 
 export const servicesIntro =
-  'TechUp9 is an AI-first product and consulting studio. We design, build and run applications powered by Large Language Models (LLMs) - from intelligent assistants and autonomous agents to AI features inside your existing products. Our consultants help you choose the right use cases, models and architecture so your AI investments are safe, scalable and deliver real business value.';
+  'We combine strategic advice with hands-on engineering. Whether you are launching a new product, modernizing a legacy system or making better use of your data, our team takes you from first conversation to a reliable system in production - and stays to help it grow.';
 
 export const services = [
   {
-    title: 'AI Strategy & Consulting',
-    text: 'Not sure where AI fits in your business? Our consultants assess your processes, data and goals to identify high-impact Generative AI use cases, estimate ROI and define a practical roadmap. We advise on build vs. buy, model selection (OpenAI, Azure OpenAI, Anthropic, Gemini, open-source), cost, security and responsible AI governance.',
+    title: 'IT Strategy & Consulting',
+    text: 'Make confident technology decisions. We assess your current systems, processes and goals, and define a pragmatic roadmap covering architecture, build-versus-buy choices, team setup, security and cost. Our advice is grounded in delivery experience, so every recommendation is one we know how to execute.',
   },
   {
-    title: 'Custom LLM Applications',
-    text: 'We build production-ready applications on top of Large Language Models - chatbots, knowledge assistants, document Q&A, content generation and summarization tools. Using Retrieval-Augmented Generation (RAG), we ground answers in your own data so responses are accurate, up to date and secure.',
+    title: 'Cloud & AWS Engineering',
+    text: 'Build on a cloud foundation that is secure, scalable and cost-efficient. We design and implement AWS architectures, migrate and modernize existing workloads, and set up infrastructure as code, CI/CD, monitoring and cost governance so your platform is easy to operate and ready to grow.',
   },
   {
-    title: 'AI Agents & Automation',
-    text: 'Go beyond chat with AI agents that take action. We design agentic workflows that connect LLMs to your tools, APIs and databases to automate support, operations, sales and back-office tasks - with human-in-the-loop controls where it matters.',
+    title: 'Product & Application Development',
+    text: 'Turn ideas into software your customers rely on. Our cross-functional teams design, build and launch web and mobile applications using modern frameworks and proven engineering practices - from MVP to mature product, with quality, performance and user experience built in.',
   },
   {
-    title: 'AI Copilots for Your Product',
-    text: 'Add AI features to your existing web and mobile apps: natural-language search, smart assistants, recommendations, auto-fill and insights. We integrate LLM capabilities seamlessly into your product so your users get more done with less effort.',
+    title: 'Backend & API Platforms',
+    text: 'The systems behind your product need to be dependable. We engineer robust backend services, APIs and integrations - designed for reliability, security and scale - and modernize legacy systems into maintainable, well-tested platforms.',
   },
   {
-    title: 'Fine-Tuning & Evaluation',
-    text: 'When off-the-shelf models are not enough, we fine-tune and optimize models for your domain. We set up evaluation pipelines to measure quality, accuracy, safety and cost, and use prompt engineering and guardrails to keep outputs reliable.',
+    title: 'Data Engineering & Pipelines',
+    text: 'Make your data trustworthy and available. We build batch and real-time data pipelines, data lakes and warehouses that bring together information from across your business, with the quality checks, governance and automation needed to run them with confidence.',
   },
   {
-    title: 'LLMOps & AI Infrastructure',
-    text: 'We deploy and operate AI systems in the cloud with monitoring, tracing, cost controls, caching and security built in. From vector databases to model gateways, we make sure your AI apps are scalable, observable and enterprise-ready.',
+    title: 'Analytics & Business Intelligence',
+    text: 'Turn data into decisions. We define meaningful metrics, build dashboards and reporting, and deliver analysis that gives leadership and teams a clear, shared view of performance - so decisions are based on evidence, not guesswork.',
   },
   {
-    title: 'Data Readiness & Analytics',
-    text: 'Great AI starts with great data. We help you collect, clean, structure and govern your data, build pipelines and embeddings, and turn analytics into AI-driven insights that power better business decisions.',
+    title: 'Applied AI & Machine Learning',
+    text: 'Adopt AI where it creates real value. Building on strong data and software foundations, we help you identify practical use cases and integrate machine learning and large language models into your products and operations - securely, responsibly and with measurable results.',
   },
 ];
 
 const processIcons = ['icon-magnifier52', 'icon-lab3', 'icon-settings49', 'icon-graphic51'];
 
 export const process = [
-  ['DISCOVER', 'Workshops to understand your goals, data and processes, and identify the highest-value AI use cases.'],
-  ['PROTOTYPE', 'Rapid proof-of-concept with real data in weeks, so you can validate value before investing further.'],
-  ['BUILD', 'Production-grade LLM apps and agents with security, guardrails, evaluation and integrations built in.'],
-  ['SCALE', 'Deploy, monitor and continuously improve with LLMOps, cost optimization and team enablement.'],
+  ['DISCOVER', 'We start by understanding your business, users, systems and constraints, and agree on goals and success measures.'],
+  ['DESIGN', 'We shape the solution and architecture, define a delivery plan, and validate key risks early with prototypes where needed.'],
+  ['DELIVER', 'We build in short, transparent iterations with automated testing, regular demos and continuous delivery to production.'],
+  ['RUN & EVOLVE', 'We operate, monitor and improve your platform, and transfer knowledge so your team is set up for long-term success.'],
 ].map(([title, text], i) => ({ title, text, icon: processIcons[i] }));
 
 const valueIcons = ['icon-timer4', 'icon-heart369', 'icon-pie-chart11', 'icon-briefcase74'];
 
 export const values = [
-  ['HONESTY', "If it's not true,don't say it"],
-  ['INTERGRITY', 'Doing the right thing even if no one is watching'],
-  ['CREATIVE FREEDOM', 'The status quo never scared'],
-  ['TRANSPARENCY', 'Open dialog is the oxygen that great companies and great idea breathe'],
-  ['EXCELLENCE', 'Success is product of execution, not luck'],
-  ['HUNGER', 'Big results require big ambitions'],
-  ['RESILIENCE', 'Greatness requires toughness'],
-  ['TRUST', 'Believe in each other, and strive to be worthy of the belief'],
+  ['CLIENT FIRST', 'Your business outcomes come first, and we measure our success by yours.'],
+  ['OWNERSHIP', 'We take responsibility for what we build, from the first line of code to production.'],
+  ['ENGINEERING EXCELLENCE', 'Quality, security and maintainability are built in, never bolted on.'],
+  ['TRANSPARENCY', 'Honest advice, clear communication and no surprises on scope, time or cost.'],
+  ['PRAGMATISM', 'We choose the simplest solution that solves the problem and scales with you.'],
+  ['INTEGRITY', 'We do the right thing, even when no one is watching.'],
+  ['PARTNERSHIP', 'We work as one team with our clients and share knowledge openly.'],
+  ['CONTINUOUS LEARNING', 'Technology moves fast. We keep learning so our clients stay ahead.'],
 ].map(([title, text], i) => ({ title, text, icon: valueIcons[i % valueIcons.length] }));
 
 export const contact = {

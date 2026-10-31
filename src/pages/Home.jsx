@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import HeroSlider from '../components/HeroSlider.jsx';
 import ServicesCarousel from '../components/ServicesCarousel.jsx';
-import { heroSlides, process, services, servicesIntro, values, whatWeDo } from '../data/site.js';
+import { about, heroSlides, process, services, servicesIntro, values } from '../data/site.js';
 import { usePage } from '../hooks/usePage.js';
 
 const BODY_CLASS =
@@ -14,18 +14,19 @@ function WhatWeDo() {
         <div className="content_wrap">
           <div className="sc_call_to_action sc_call_to_action_style_1 sc_call_to_action_align_center responsive_margins sc_no_image">
             <div className="sc_call_to_action_info">
-              <h6 className="sc_call_to_action_subtitle sc_item_subtitle">what we do</h6>
+              <h6 className="sc_call_to_action_subtitle sc_item_subtitle">who we are</h6>
               <div className="sc_call_to_action_descr sc_item_descr">
-                AI &amp; LLM apps, built right.<br />
-                {whatWeDo}
+                {about.headline}
+                <br />
+                {about.text}
               </div>
               <div className="sc_call_to_action_buttons sc_item_buttons">
                 <div className="sc_call_to_action_button sc_item_button">
                   <Link
-                    to={{ pathname: '/', hash: '#our-process' }}
+                    to={{ pathname: '/', hash: '#our-services' }}
                     className="sc_button sc_button_square sc_button_style_filled sc_button_size_small sc_button_iconed icon-right margin_bottom_m20"
                   >
-                    How We Work
+                    Our Services
                   </Link>
                 </div>
               </div>
@@ -96,7 +97,7 @@ function IconGrid({ id, title, description, items }) {
 }
 
 export default function Home() {
-  usePage({ title: 'AI & LLM App Development and Consulting', bodyClass: BODY_CLASS });
+  usePage({ title: 'IT Consulting & Software Engineering', bodyClass: BODY_CLASS });
 
   return (
     <>
@@ -113,9 +114,9 @@ export default function Home() {
                   title="Our Process"
                   description={
                     <>
-                      A proven path from AI idea to production.
+                      A clear, collaborative approach to every engagement.
                       <br />
-                      Fast prototypes, measurable results, enterprise-grade delivery.
+                      Built on transparency, short feedback loops and shared ownership.
                     </>
                   }
                   items={process}
@@ -124,9 +125,9 @@ export default function Home() {
                   title="Our Values"
                   description={
                     <>
-                      Values are integral part of company.
+                      The principles behind how we work,
                       <br />
-                      As bunch of individuals, we adhere to following values.
+                      with our clients and with each other.
                     </>
                   }
                   items={values}
