@@ -3,6 +3,25 @@ export const hero = {
   title: 'We build the software your business runs on.',
   text: 'TechUp9 helps startups and growing companies design, build and operate reliable software - from cloud platforms on AWS to applications, backend systems, data pipelines and analytics.',
   highlights: ['Senior engineering team', 'Strategy through to production', 'Long-term partnership'],
+  deliverables: ['Cloud & AWS', 'Applications', 'Backend & APIs', 'Data & analytics', 'Applied AI'],
+};
+
+export const sections = {
+  services: {
+    eyebrow: 'Services',
+    title: 'End-to-end technology expertise',
+    text: 'Strategic advice backed by hands-on engineering. We take you from first conversation to a reliable system in production, and stay to help it grow.',
+  },
+  approach: {
+    eyebrow: 'Approach',
+    title: 'A clear path from idea to production',
+    text: 'A collaborative way of working built on transparency, short feedback loops and shared ownership.',
+  },
+  whyUs: {
+    eyebrow: 'Why TechUp9',
+    title: 'Principles behind every engagement',
+    text: 'We work as an extension of your team, with a focus on measurable business outcomes.',
+  },
 };
 
 export const services = [
@@ -89,8 +108,11 @@ export const principles = [
   },
 ];
 
+const phone = '+49 176 2945 7475';
+
 export const contact = {
-  phone: '+49 176 2945 7475',
+  phone,
+  phoneHref: `tel:${phone.replace(/\s/g, '')}`,
   email: 'info@techup9.com',
   gstin: 'GJ837495287',
 };

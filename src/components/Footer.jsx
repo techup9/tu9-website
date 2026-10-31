@@ -32,7 +32,7 @@ export default function Footer() {
               <a href={`mailto:${contact.email}`}>{contact.email}</a>
             </li>
             <li>
-              <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
+              <a href={contact.phoneHref}>{contact.phone}</a>
             </li>
             <li className="muted">GSTIN {contact.gstin}</li>
           </ul>

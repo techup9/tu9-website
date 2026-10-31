@@ -21,7 +21,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main id="top">
+      <main>
         <Outlet />
       </main>
       <Footer />

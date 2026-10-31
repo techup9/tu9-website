@@ -12,7 +12,7 @@ import {
   Sparkles,
   Workflow,
 } from 'lucide-react';
-import { contact, hero, principles, process, services } from '../data/site.js';
+import { contact, hero, principles, process, sections, services } from '../data/site.js';
 import { usePageTitle } from '../hooks/usePage.js';
 
 const SERVICE_ICONS = {
@@ -63,7 +63,7 @@ function Hero() {
           <div className="hero-card">
             <p className="hero-card-label">What we deliver</p>
             <ul>
-              {['Cloud & AWS', 'Applications', 'Backend & APIs', 'Data & analytics', 'Applied AI'].map((item) => (
+              {hero.deliverables.map((item) => (
                 <li key={item}>
                   <span className="dot" /> {item}
                 </li>
@@ -80,11 +80,7 @@ function Services() {
   return (
     <section className="section" id="services">
       <div className="container">
-        <SectionHeading
-          eyebrow="Services"
-          title="End-to-end technology expertise"
-          text="Strategic advice backed by hands-on engineering. We take you from first conversation to a reliable system in production, and stay to help it grow."
-        />
+        <SectionHeading {...sections.services} />
         <div className="card-grid">
           {services.map((service) => {
             const Icon = SERVICE_ICONS[service.icon];
@@ -115,11 +111,7 @@ function Approach() {
   return (
     <section className="section section-tinted" id="approach">
       <div className="container">
-        <SectionHeading
-          eyebrow="Approach"
-          title="A clear path from idea to production"
-          text="A collaborative way of working built on transparency, short feedback loops and shared ownership."
-        />
+        <SectionHeading {...sections.approach} />
         <ol className="steps">
           {process.map((step, i) => (
             <li className="step" key={step.title}>
@@ -138,11 +130,7 @@ function WhyUs() {
   return (
     <section className="section" id="why-us">
       <div className="container">
-        <SectionHeading
-          eyebrow="Why TechUp9"
-          title="Principles behind every engagement"
-          text="We work as an extension of your team, with a focus on measurable business outcomes."
-        />
+        <SectionHeading {...sections.whyUs} />
         <div className="principles">
           {principles.map((item) => (
             <div className="principle" key={item.title}>
@@ -169,7 +157,7 @@ function Contact() {
             <a href={`mailto:${contact.email}`} className="btn btn-light">
               <Mail size={18} aria-hidden="true" /> {contact.email}
             </a>
-            <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="btn btn-outline-light">
+            <a href={contact.phoneHref} className="btn btn-outline-light">
               <Phone size={18} aria-hidden="true" /> {contact.phone}
             </a>
           </div>

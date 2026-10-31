@@ -44,8 +44,8 @@ Contact sections reached by hash links (`#services`, `#approach`, `#why-us`,
 `#contact`). Any other path, including the retired blog and old `.html` URLs,
 redirects to `/`.
 
-Hero, services, process steps, principles, and contact details are in
-`src/data/site.js`. Section headings and layout are in `src/pages/Home.jsx`.
+All copy, including section headings and contact details, is in
+`src/data/site.js`. Layout is in `src/pages/Home.jsx`.
 
 ## Project structure
 
