@@ -1,94 +1,165 @@
 import { Link } from 'react-router';
-import HeroSlider from '../components/HeroSlider.jsx';
-import ServicesCarousel from '../components/ServicesCarousel.jsx';
-import { about, heroSlides, process, services, servicesIntro, values } from '../data/site.js';
-import { usePage } from '../hooks/usePage.js';
+import {
+  ArrowRight,
+  ChartColumn,
+  Check,
+  Cloud,
+  Compass,
+  Mail,
+  MonitorSmartphone,
+  Phone,
+  Server,
+  Sparkles,
+  Workflow,
+} from 'lucide-react';
+import { contact, hero, principles, process, sections, services } from '../data/site.js';
+import { usePageTitle } from '../hooks/usePage.js';
 
-const BODY_CLASS =
-  'home-page home page body_style_wide body_filled article_style_stretch top_panel_show top_panel_above sidebar_hide sidebar_outer_hide';
+const SERVICE_ICONS = {
+  compass: Compass,
+  cloud: Cloud,
+  app: MonitorSmartphone,
+  server: Server,
+  pipeline: Workflow,
+  chart: ChartColumn,
+  spark: Sparkles,
+};
 
-function WhatWeDo() {
+function SectionHeading({ eyebrow, title, text }) {
   return (
-    <section className="light_section">
-      <div className="container">
-        <div className="content_wrap">
-          <div className="sc_call_to_action sc_call_to_action_style_1 sc_call_to_action_align_center responsive_margins sc_no_image">
-            <div className="sc_call_to_action_info">
-              <h6 className="sc_call_to_action_subtitle sc_item_subtitle">who we are</h6>
-              <div className="sc_call_to_action_descr sc_item_descr">
-                {about.headline}
-                <br />
-                {about.text}
-              </div>
-              <div className="sc_call_to_action_buttons sc_item_buttons">
-                <div className="sc_call_to_action_button sc_item_button">
-                  <Link
-                    to={{ pathname: '/', hash: '#our-services' }}
-                    className="sc_button sc_button_square sc_button_style_filled sc_button_size_small sc_button_iconed icon-right margin_bottom_m20"
-                  >
-                    Our Services
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div className="section-heading">
+      <p className="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+      {text && <p className="lead">{text}</p>}
+    </div>
   );
 }
 
-function OurServices() {
+function Hero() {
   return (
-    <section className="grey_section" id="our-services">
-      <div className="container">
-        <div className="content_wrap">
-          <div className="sc_testimonials sc_testimonials_style_testimonials-4 sc_slider_swiper swiper-slider-container sc_slider_nopagination sc_slider_controls sc_slider_controls_bottom sc_slider_height_auto responsive_margins">
-            <h2 className="sc_services_title sc_item_title">Our Services</h2>
-            <div className="sc_services_descr sc_item_descr">{servicesIntro}</div>
+    <section className="hero">
+      <div className="container hero-grid">
+        <div>
+          <p className="eyebrow">{hero.eyebrow}</p>
+          <h1>{hero.title}</h1>
+          <p className="lead">{hero.text}</p>
+          <div className="actions">
+            <Link to={{ pathname: '/', hash: '#contact' }} className="btn btn-primary">
+              Start a conversation <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+            <Link to={{ pathname: '/', hash: '#services' }} className="btn btn-ghost">
+              Explore services
+            </Link>
           </div>
-          <ServicesCarousel items={services} />
+          <ul className="hero-highlights">
+            {hero.highlights.map((item) => (
+              <li key={item}>
+                <Check size={18} aria-hidden="true" /> {item}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function IconGrid({ id, title, description, items }) {
-  const rows = [];
-  for (let i = 0; i < items.length; i += 4) rows.push(items.slice(i, i + 4));
-  return (
-    <section className="grey_section" id={id}>
-      <div className="container">
-        <div className="content_wrap">
-          <div className="sc_services_wrap">
-            <div className="sc_services sc_services_style_services-1 sc_services_type_icons sc_slider_nopagination sc_slider_nocontrols responsive_margins">
-              <h2 className="sc_services_title sc_item_title">{title}</h2>
-              <div className="sc_services_descr sc_item_descr">{description}</div>
-              {rows.map((row, r) => (
-                <div className="sc_columns columns_wrap" key={r}>
-                  {row.map((item, i) => (
-                    <div className="column-1_4 column_padding_bottom" key={item.title}>
-                      <div
-                        className={`sc_services_item sc_services_item_${i + 1} ${i % 2 ? 'even' : 'odd'}${i === 0 ? ' first' : ''}`}
-                      >
-                        <a href="#" className="sc_services_icon">
-                          <span className={`sc_icon ${item.icon}`}> </span>
-                        </a>
-                        <div className="sc_services_item_content">
-                          <h5 className="sc_services_item_title">
-                            <a href="#">{item.title}</a>
-                          </h5>
-                          <div className="sc_services_item_description">
-                            <p>{item.text}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+        <div className="hero-panel" aria-hidden="true">
+          <div className="hero-card">
+            <p className="hero-card-label">What we deliver</p>
+            <ul>
+              {hero.deliverables.map((item) => (
+                <li key={item}>
+                  <span className="dot" /> {item}
+                </li>
               ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Services() {
+  return (
+    <section className="section" id="services">
+      <div className="container">
+        <SectionHeading {...sections.services} />
+        <div className="card-grid">
+          {services.map((service) => {
+            const Icon = SERVICE_ICONS[service.icon];
+            return (
+              <article className="card" key={service.title}>
+                <span className="card-icon">
+                  <Icon size={22} aria-hidden="true" />
+                </span>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </article>
+            );
+          })}
+          <Link to={{ pathname: '/', hash: '#contact' }} className="card card-cta">
+            <h3>Not sure where to start?</h3>
+            <p>Tell us about your challenge and we&apos;ll recommend the right next step.</p>
+            <span className="card-link">
+              Talk to an expert <ArrowRight size={16} aria-hidden="true" />
+            </span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Approach() {
+  return (
+    <section className="section section-tinted" id="approach">
+      <div className="container">
+        <SectionHeading {...sections.approach} />
+        <ol className="steps">
+          {process.map((step, i) => (
+            <li className="step" key={step.title}>
+              <span className="step-number">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function WhyUs() {
+  return (
+    <section className="section" id="why-us">
+      <div className="container">
+        <SectionHeading {...sections.whyUs} />
+        <div className="principles">
+          {principles.map((item) => (
+            <div className="principle" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section className="section" id="contact">
+      <div className="container">
+        <div className="cta">
+          <div>
+            <h2>Have a project in mind?</h2>
+            <p>Tell us about your goals. We&apos;ll get back to you within one business day.</p>
+          </div>
+          <div className="cta-actions">
+            <a href={`mailto:${contact.email}`} className="btn btn-light">
+              <Mail size={18} aria-hidden="true" /> {contact.email}
+            </a>
+            <a href={contact.phoneHref} className="btn btn-outline-light">
+              <Phone size={18} aria-hidden="true" /> {contact.phone}
+            </a>
           </div>
         </div>
       </div>
@@ -97,46 +168,15 @@ function IconGrid({ id, title, description, items }) {
 }
 
 export default function Home() {
-  usePage({ title: 'IT Consulting & Software Engineering', bodyClass: BODY_CLASS });
+  usePageTitle('IT Consulting & Software Engineering');
 
   return (
     <>
-      <HeroSlider slides={heroSlides} />
-      <div className="page_content_wrap page_paddings_no">
-        <div>
-          <div className="content">
-            <article className="post_item post_item_single page type-page">
-              <div className="post_content">
-                <WhatWeDo />
-                <OurServices />
-                <IconGrid
-                  id="our-process"
-                  title="Our Process"
-                  description={
-                    <>
-                      A clear, collaborative approach to every engagement.
-                      <br />
-                      Built on transparency, short feedback loops and shared ownership.
-                    </>
-                  }
-                  items={process}
-                />
-                <IconGrid
-                  title="Our Values"
-                  description={
-                    <>
-                      The principles behind how we work,
-                      <br />
-                      with our clients and with each other.
-                    </>
-                  }
-                  items={values}
-                />
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
+      <Hero />
+      <Services />
+      <Approach />
+      <WhyUs />
+      <Contact />
     </>
   );
 }

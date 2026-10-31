@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // Static hosts (e.g. GitHub Pages) serve 404.html for unknown paths, which lets
-// client-side routes like /blog work on a hard refresh.
+// client-side routes work on a hard refresh.
 const spaFallback = () => {
   let outDir;
   return {

@@ -1,8 +1,10 @@
 # TechUp9 website
 
-The [TechUp9 website](https://www.techup9.com) is built with React and Vite. It
-retains the original ThemeRex "Ester" design and CSS, while React components
-replace the legacy jQuery slider, carousel, and menu interactions.
+The [TechUp9 website](https://www.techup9.com) is a single-page marketing site
+for TechUp9's IT consulting and software engineering services. It is built with
+React and Vite, uses a custom stylesheet with the mint/teal brand palette and
+the Inter font, and uses [Lucide](https://lucide.dev) icons. The design is
+intentionally static, with no animations or transitions.
 
 ## Requirements
 
@@ -37,45 +39,38 @@ and `dist` from the workspace.
 
 ## Content and routes
 
-| Route | Page |
-| --- | --- |
-| `/` | Home |
-| `/blog` | Blog list |
-| `/blog/:slug` | Blog post |
+The site has a single route, `/`, with Services, Approach, Why TechUp9, and
+Contact sections reached by hash links (`#services`, `#approach`, `#why-us`,
+`#contact`). Any other path, including the retired blog and old `.html` URLs,
+redirects to `/`.
 
-The old `/index.html`, `/blog.html`, and `/blog-post-standard.html` paths
-redirect to their React routes. The last redirects to the first post in
-`src/data/posts.js`. The existing Our Process menu link has no matching section.
-
-Slides, services, values, and contact details are in `src/data/site.js`; some
-home-page copy is in `src/pages/Home.jsx`. Blog entries are defined in
-`src/data/posts.js` and currently share placeholder body text.
+All copy, including section headings and contact details, is in
+`src/data/site.js`. Layout is in `src/pages/Home.jsx`.
 
 ## Project structure
 
 ```text
-index.html              HTML shell, Google Fonts, and analytics
+index.html              HTML shell, Google Fonts, SEO tags, and analytics
 public/images/          static images, served from /images
 src/
-  main.jsx              entry point and legacy stylesheet import order
-  App.jsx               routes and redirects
-  components/           shared layout and interactive components
-  pages/                home, blog list, and blog post pages
-  data/                 site and blog content
-  hooks/                page, responsive menu, and swipe behavior
-  styles/legacy/        original theme styles
-  styles/app.css        React component styles and theme overrides
+  main.jsx              entry point
+  App.jsx               routes and catch-all redirect
+  components/           header, footer, and layout
+  pages/Home.jsx        home page sections
+  data/site.js          site content
+  hooks/usePage.js      document title
+  styles/app.css        all site styles and design tokens
 ```
 
 ## Deployment
 
 Build the site and publish the contents of `dist/` to a static host. Configure
-the host to serve `index.html` for client-side routes, including direct visits
-to blog pages and old `.html` URLs. The build also copies `index.html` to
+the host to serve `index.html` for client-side routes, so old URLs reach the
+catch-all redirect. The build also copies `index.html` to
 `dist/404.html` for hosts that serve that file for unknown paths, such as GitHub
 Pages; the HTTP response may still have a 404 status.
 
 The current asset paths and router assume deployment at the origin root.
 Hosting under a URL prefix requires adjusting the Vite base, asset paths, and
-router configuration. The HTML shell loads Roboto from Google Fonts and
+router configuration. The HTML shell loads Inter from Google Fonts and
 includes Google Analytics.
