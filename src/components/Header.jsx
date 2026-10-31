@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 
 export const NAV_ITEMS = [
   { label: 'Services', hash: '#services' },
+  { label: 'Client work', hash: '#work' },
   { label: 'Approach', hash: '#approach' },
   { label: 'Why TechUp9', hash: '#why-us' },
 ];

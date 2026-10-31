@@ -1,7 +1,6 @@
 # TechUp9 website
 
-The [TechUp9 website](https://www.techup9.com) is a single-page marketing site
-for TechUp9's IT consulting and software engineering services. It is built with
+The [TechUp9 website](https://www.techup9.com) is a marketing site for TechUp9's IT consulting and software engineering services. It is built with
 React and Vite, uses a custom stylesheet with the mint/teal brand palette and
 the Inter font, and uses [Lucide](https://lucide.dev) icons. The design is
 intentionally static, with no animations or transitions.
@@ -39,13 +38,18 @@ and `dist` from the workspace.
 
 ## Content and routes
 
-The site has a single route, `/`, with Services, Approach, Why TechUp9, and
-Contact sections reached by hash links (`#services`, `#approach`, `#why-us`,
-`#contact`). Any other path, including the retired blog and old `.html` URLs,
-redirects to `/`.
+- `/` is the home page, with Services, Client work, Approach, Why TechUp9, and
+  Contact sections reached by hash links (`#services`, `#work`, `#approach`,
+  `#why-us`, `#contact`).
+- `/case-studies/:slug` shows a customer success story, for example
+  `/case-studies/seven-re-etarif`. Unknown slugs redirect to `/`.
 
-All copy, including section headings and contact details, is in
-`src/data/site.js`. Layout is in `src/pages/Home.jsx`.
+Any other path, including the retired blog and old `.html` URLs, redirects to
+`/`.
+
+All copy, including section headings, case studies, and contact details, is in
+`src/data/site.js`. To add a case study, add an entry to `caseStudies`; it is
+listed on the home page and gets its own page automatically.
 
 ## Project structure
 
@@ -55,8 +59,9 @@ public/images/          static images, served from /images
 src/
   main.jsx              entry point
   App.jsx               routes and catch-all redirect
-  components/           header, footer, and layout
+  components/           header, footer, layout, and contact call to action
   pages/Home.jsx        home page sections
+  pages/CaseStudy.jsx   case study page
   data/site.js          site content
   hooks/usePage.js      document title
   styles/app.css        all site styles and design tokens
