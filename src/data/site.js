@@ -120,6 +120,8 @@ export const caseStudies = [
     clientUrl: 'https://seven-re.com/',
     product: 'VRN eTarif app',
     title: 'An end-to-end mobile ticketing platform, in production for eight years',
+    description:
+      "How TechUp9 built and ran Seven-RE's VRN eTarif ticketing platform for eight years: iOS and Android apps, a fare engine, cloud backend and billing.",
     summary:
       "TechUp9 built the complete platform behind Seven-RE's VRN eTarif app, letting public transport passengers in the Rhein-Neckar region check in, ride and check out while the best fare is calculated automatically.",
     stats: [

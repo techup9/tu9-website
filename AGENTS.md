@@ -23,11 +23,20 @@ and deployment.
   catch-all and the generated `dist/404.html` static-host fallback. Hash
   navigation is handled in `src/components/Layout.jsx`; keep section IDs unique
   and in sync with `NAV_ITEMS` in `src/components/Header.jsx`.
+- Pages are prerendered at build time by `scripts/prerender.js` and hydrated
+  in the browser, so components must render the same output on the server and
+  the client: no `window` or `document` access during render, and no
+  time-dependent output without `suppressHydrationWarning`.
+- Page metadata and JSON-LD live in `src/seo.js`. When adding a route, add it
+  to `pages` there so it gets head tags, a prerendered file, and sitemap and
+  `llms.txt` entries.
 
 ## Validation
 
 - Run `npm run build` for source or style changes. There are currently no test
-  or lint scripts in `package.json`.
+  or lint scripts in `package.json`. For SEO changes, check the generated HTML,
+  `sitemap.xml`, and `llms.txt` in `dist/`, and check the browser console for
+  hydration errors under `npm run preview`.
 - For UI changes, check affected pages at desktop and mobile widths, including the
   mobile menu and hash links. For routing changes, check direct page loads and
   old URLs on a host with SPA fallback configured.

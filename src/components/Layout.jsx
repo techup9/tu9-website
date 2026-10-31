@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
+import { usePageMeta } from '../hooks/usePage.js';
 
 function useScrollOnNavigate() {
   const { pathname, hash, key } = useLocation();
@@ -17,6 +18,7 @@ function useScrollOnNavigate() {
 
 export default function Layout() {
   useScrollOnNavigate();
+  usePageMeta();
 
   return (
     <>

@@ -28,6 +28,10 @@ npm run preview
 
 The build is written to `dist/`. There are currently no test or lint scripts.
 
+`npm run build` runs `vite build` and then `scripts/prerender.js`, which
+renders each page to static HTML and generates the SEO and LLM files described
+below. The dev server renders on the client only.
+
 ### GitHub Copilot app
 
 The repository includes `.github/github-app.yml`. After reviewing and accepting
@@ -48,8 +52,31 @@ Any other path, including the retired blog and old `.html` URLs, redirects to
 `/`.
 
 All copy, including section headings, case studies, and contact details, is in
-`src/data/site.js`. To add a case study, add an entry to `caseStudies`; it is
-listed on the home page and gets its own page automatically.
+`src/data/site.js`. To add a case study, add an entry to `caseStudies`,
+including a `description` for search results; it is listed on the home page and
+gets its own page, sitemap entry, and `llms.txt` entry automatically.
+
+## SEO and LLM readability
+
+Page titles, descriptions, canonical URLs, Open Graph tags, and JSON-LD
+structured data (Organization, WebSite, Article, and BreadcrumbList) are defined
+in `src/seo.js`. The site URL, `https://www.techup9.com`, is set there as
+`SITE_URL`. A new route also needs an entry in `pages` there so it is
+prerendered and listed in the sitemap.
+
+The build writes:
+
+- `index.html` and `case-studies/<slug>.html`, with the full page content and
+  head tags, so search engines, link previews, and AI crawlers can read pages
+  without running JavaScript. The browser then hydrates them.
+- `sitemap.xml`, with `lastmod` set to the date of the last commit.
+- `robots.txt`, which allows all crawlers and links the sitemap.
+- `llms.txt`, a short Markdown summary for language models
+  ([llmstxt.org](https://llmstxt.org)), and `llms-full.txt`, with the full site
+  content as Markdown.
+- `404.html`, an empty client-rendered shell marked `noindex`.
+
+The social share image, `public/images/og-image.png`, is 1200 × 630 pixels.
 
 ## Project structure
 
@@ -57,23 +84,32 @@ listed on the home page and gets its own page automatically.
 index.html              HTML shell, Google Fonts, SEO tags, and analytics
 public/images/          static images, served from /images
 src/
-  main.jsx              entry point
+  main.jsx              browser entry point; hydrates prerendered pages
+  entry-server.jsx      server render entry used by the prerender script
+  seo.js                site URL, page metadata, and structured data
   App.jsx               routes and catch-all redirect
   components/           header, footer, layout, and contact call to action
   pages/Home.jsx        home page sections
   pages/CaseStudy.jsx   case study page
   data/site.js          site content
-  hooks/usePage.js      document title
+  hooks/usePage.js      updates head tags on client-side navigation
   styles/app.css        all site styles and design tokens
+scripts/prerender.js    prerenders pages and writes sitemap, robots, and llms files
 ```
 
 ## Deployment
 
-Build the site and publish the contents of `dist/` to a static host. Configure
-the host to serve `index.html` for client-side routes, so old URLs reach the
-catch-all redirect. The build also copies `index.html` to
-`dist/404.html` for hosts that serve that file for unknown paths, such as GitHub
-Pages; the HTTP response may still have a 404 status.
+Build the site and publish the contents of `dist/` to a static host. The host
+must serve `case-studies/<slug>.html` for the clean URL
+`/case-studies/<slug>`. GitHub Pages, Netlify, and Cloudflare Pages do this by
+default; with nginx, use `try_files $uri $uri.html /404.html;`.
+
+Unknown paths, including old URLs, should serve `404.html` (or `index.html`),
+which renders on the client and reaches the catch-all redirect. The HTTP
+response may still have a 404 status.
+
+If the site moves to another domain, update `SITE_URL` in `src/seo.js` and
+rebuild so the canonical URLs, sitemap, and structured data match.
 
 The current asset paths and router assume deployment at the origin root.
 Hosting under a URL prefix requires adjusting the Vite base, asset paths, and

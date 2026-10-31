@@ -2,12 +2,10 @@ import { Link, Navigate, useParams } from 'react-router';
 import { ArrowLeft, ArrowUpRight, Check } from 'lucide-react';
 import ContactCta from '../components/ContactCta.jsx';
 import { caseStudies } from '../data/site.js';
-import { usePageTitle } from '../hooks/usePage.js';
 
 export default function CaseStudy() {
   const { slug } = useParams();
   const study = caseStudies.find((item) => item.slug === slug);
-  usePageTitle(study ? `${study.client} case study` : 'Case study');
 
   if (!study) return <Navigate to="/" replace />;
 

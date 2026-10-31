@@ -1,24 +1,8 @@
-import { copyFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Static hosts (e.g. GitHub Pages) serve 404.html for unknown paths, which lets
-// client-side routes work on a hard refresh.
-const spaFallback = () => {
-  let outDir;
-  return {
-    name: 'spa-404-fallback',
-    apply: 'build',
-    configResolved(config) {
-      outDir = resolve(config.root, config.build.outDir);
-    },
-    async writeBundle() {
-      await copyFile(resolve(outDir, 'index.html'), resolve(outDir, '404.html'));
-    },
-  };
-};
-
+// `npm run build` also runs scripts/prerender.js, which writes the static HTML
+// for each page and the 404.html fallback.
 export default defineConfig({
-  plugins: [react(), spaFallback()],
+  plugins: [react()],
 });

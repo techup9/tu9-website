@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import ContactCta from '../components/ContactCta.jsx';
 import { caseStudies, hero, principles, process, sections, services } from '../data/site.js';
-import { usePageTitle } from '../hooks/usePage.js';
 
 const SERVICE_ICONS = {
   compass: Compass,
@@ -176,8 +175,6 @@ function WhyUs() {
 }
 
 export default function Home() {
-  usePageTitle('IT Consulting & Software Engineering');
-
   return (
     <>
       <Hero />
