@@ -93,7 +93,7 @@ export default function HeroSlider({ slides }) {
                   {withBreaks(slide.text)}
                 </Layer>
                 <Layer {...layers.button} animation="rise" className="tp-caption button rs-xs-hide">
-                  <a href="#contact-us" tabIndex={i === active ? undefined : -1}>Inspire me</a>
+                  <a href="#contact-us" tabIndex={i === active ? undefined : -1}>Get in touch</a>
                 </Layer>
               </div>
             </div>

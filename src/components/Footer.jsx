@@ -18,7 +18,7 @@ export default function Footer() {
                     </Link>
                   </div>
                   <div className="logo_descr">
-                    Learn more about who we are or get in touch with us if you need us to perform your next creative project.
+                    IT consulting and software engineering for businesses that run on technology. Tell us about your next project.
                   </div>
                 </div>
               </aside>

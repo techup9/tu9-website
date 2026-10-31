@@ -1,8 +1,8 @@
 export const heroSlides = [
   {
     image: { src: '/images/13.jpg', width: 1920, height: 1082, offsetX: 0 },
-    title: ['The Idea', 'Nurturer'],
-    text: ['We turn your ideas', 'into budding startups'],
+    title: ['Engineering', 'that scales'],
+    text: ['Software, cloud and data consulting', 'for growing businesses'],
     layers: {
       title: { x: -343, y: -95 },
       text: { x: -344, y: 46, delay: 850 },
@@ -11,8 +11,8 @@ export const heroSlides = [
   },
   {
     image: { src: '/images/Depositphotos_42929589_original.jpg', width: 2300, height: 1533, offsetX: -100 },
-    title: ['Launch your', 'product'],
-    text: ['Launch you dream project', 'with expert Agile team'],
+    title: ['From idea to', 'production'],
+    text: ['Senior engineers who design,', 'build and run your platform'],
     layers: {
       title: { x: 344, y: -90 },
       text: { x: 344, y: 56, delay: 1100 },
@@ -21,51 +21,65 @@ export const heroSlides = [
   },
 ];
 
+export const about = {
+  headline: 'Technology partners for software-driven businesses.',
+  text: 'We help startups and established companies design, build and run the software their business depends on - across cloud, applications, data and analytics.',
+};
+
 export const servicesIntro =
-  'With niche expertise in core tech domains, we at TechUp9 are highly-efficient in providing expert services related to core web development, mobile app development, artificial intelligence, IoT, machine learning big data and analytics. Having a specialist team for catering to personalized requirements, we bring technical excellence within the reach of every brand, business and entrepreneur.';
+  'We combine strategic advice with hands-on engineering. Whether you are launching a new product, modernizing a legacy system or making better use of your data, our team takes you from first conversation to a reliable system in production - and stays to help it grow.';
 
 export const services = [
   {
-    title: 'Business/Technology Consulting',
-    text: 'In an age of fast transformation, investing in technology is essential to beat competition and stay relevant. With the help of our insightful enterprise consulting services, you can identify valuable opportunities to integrate latest technologies into your existing business processes. Our niche-specific tech experts will identify the processes that need improvement and employ their deep knowledge to provide insightful business technology consulting to make your processes much more efficient.',
+    title: 'IT Strategy & Consulting',
+    text: 'Make confident technology decisions. We assess your current systems, processes and goals, and define a pragmatic roadmap covering architecture, build-versus-buy choices, team setup, security and cost. Our advice is grounded in delivery experience, so every recommendation is one we know how to execute.',
   },
   {
-    title: 'Digital Transformation',
-    text: 'Transitioning from paper-based or mechanical processes for digital excellence can be a tiring and confusing job. Having knowledge of making enterprises better by infusion of technology, our experts can drive your digital business transformation efforts and help you create an organization for the future.',
+    title: 'Cloud & AWS Engineering',
+    text: 'Build on a cloud foundation that is secure, scalable and cost-efficient. We design and implement AWS architectures, migrate and modernize existing workloads, and set up infrastructure as code, CI/CD, monitoring and cost governance so your platform is easy to operate and ready to grow.',
   },
   {
-    title: 'Web Development Services',
-    text: 'With massive experience in developing highly-engaging web portals, we boast of being one of the finest website development companies in India. Our expert developers are equipped with the expertise to develop websites using all the latest frameworks and architectures including Java, PHP, Python, AngularJS, HTML5, among others. Having full-suite capabilities to develop websites from scratch, we listen to your custom requirements and take full responsibility for making your website development project successful.',
+    title: 'Product & Application Development',
+    text: 'Turn ideas into software your customers rely on. Our cross-functional teams design, build and launch web and mobile applications using modern frameworks and proven engineering practices - from MVP to mature product, with quality, performance and user experience built in.',
   },
   {
-    title: 'IoT App Development',
-    text: 'Internet of Things (IoT) has revolutionized all business segments owing to the promise of a connected future. With an expert team of trained IoT developers, we can empower the IoT app development process efficiently. Starting from identification of a problem, we devise a working solution, guide on hardware selection, build a powerful platform, test and deploy efficiently-working IoT apps according to requirements.',
+    title: 'Backend & API Platforms',
+    text: 'The systems behind your product need to be dependable. We engineer robust backend services, APIs and integrations - designed for reliability, security and scale - and modernize legacy systems into maintainable, well-tested platforms.',
   },
   {
-    title: 'AI & ML Implementation',
-    text: 'Artificial Intelligence is redefining visions for the future. Using our niche experience in artificial intelligence development, we identify ways of utilizing artificial intelligence for your business. Analyzing opportunities to automate processes by evaluating your existing operations, we move forward with machine learning development and implementation to endow your business with automation benefits.',
+    title: 'Data Engineering & Pipelines',
+    text: 'Make your data trustworthy and available. We build batch and real-time data pipelines, data lakes and warehouses that bring together information from across your business, with the quality checks, governance and automation needed to run them with confidence.',
   },
   {
-    title: 'Analytics & Big Data',
-    text: 'In a connected world, no business can dominate the industry without having data analytics capabilities. Our energized business analytics solutions supercharge your business decisions by adding the power of value-based data. By using our expertise, we endow your organization to possess capabilities to capture, analyze and make sense of the vast amounts of data generated every day.',
+    title: 'Analytics & Business Intelligence',
+    text: 'Turn data into decisions. We define meaningful metrics, build dashboards and reporting, and deliver analysis that gives leadership and teams a clear, shared view of performance - so decisions are based on evidence, not guesswork.',
   },
   {
-    title: 'Mobile App Development',
-    text: 'Our core philosophy of catering to differentiated requirements of our clients has powered our mobile app development team from the beginning. Enriched with the ability to spearhead custom mobile application development process, our experts can help you design, develop, test and deploy successful iOS Apps, Android Apps, Xamarin Apps, Flutter Apps and React Native Apps utilizing the best development practices.',
+    title: 'Applied AI & Machine Learning',
+    text: 'Adopt AI where it creates real value. Building on strong data and software foundations, we help you identify practical use cases and integrate machine learning and large language models into your products and operations - securely, responsibly and with measurable results.',
   },
 ];
+
+const processIcons = ['icon-magnifier52', 'icon-lab3', 'icon-settings49', 'icon-graphic51'];
+
+export const process = [
+  ['DISCOVER', 'We start by understanding your business, users, systems and constraints, and agree on goals and success measures.'],
+  ['DESIGN', 'We shape the solution and architecture, define a delivery plan, and validate key risks early with prototypes where needed.'],
+  ['DELIVER', 'We build in short, transparent iterations with automated testing, regular demos and continuous delivery to production.'],
+  ['RUN & EVOLVE', 'We operate, monitor and improve your platform, and transfer knowledge so your team is set up for long-term success.'],
+].map(([title, text], i) => ({ title, text, icon: processIcons[i] }));
 
 const valueIcons = ['icon-timer4', 'icon-heart369', 'icon-pie-chart11', 'icon-briefcase74'];
 
 export const values = [
-  ['HONESTY', "If it's not true,don't say it"],
-  ['INTERGRITY', 'Doing the right thing even if no one is watching'],
-  ['CREATIVE FREEDOM', 'The status quo never scared'],
-  ['TRANSPARENCY', 'Open dialog is the oxygen that great companies and great idea breathe'],
-  ['EXCELLENCE', 'Success is product of execution, not luck'],
-  ['HUNGER', 'Big results require big ambitions'],
-  ['RESILIENCE', 'Greatness requires toughness'],
-  ['TRUST', 'Believe in each other, and strive to be worthy of the belief'],
+  ['CLIENT FIRST', 'Your business outcomes come first, and we measure our success by yours.'],
+  ['OWNERSHIP', 'We take responsibility for what we build, from the first line of code to production.'],
+  ['ENGINEERING EXCELLENCE', 'Quality, security and maintainability are built in, never bolted on.'],
+  ['TRANSPARENCY', 'Honest advice, clear communication and no surprises on scope, time or cost.'],
+  ['PRAGMATISM', 'We choose the simplest solution that solves the problem and scales with you.'],
+  ['INTEGRITY', 'We do the right thing, even when no one is watching.'],
+  ['PARTNERSHIP', 'We work as one team with our clients and share knowledge openly.'],
+  ['CONTINUOUS LEARNING', 'Technology moves fast. We keep learning so our clients stay ahead.'],
 ].map(([title, text], i) => ({ title, text, icon: valueIcons[i % valueIcons.length] }));
 
 export const contact = {
