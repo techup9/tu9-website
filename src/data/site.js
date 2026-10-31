@@ -1,8 +1,8 @@
 export const heroSlides = [
   {
     image: { src: '/images/13.jpg', width: 1920, height: 1082, offsetX: 0 },
-    title: ['The Idea', 'Nurturer'],
-    text: ['We turn your ideas', 'into budding startups'],
+    title: ['AI-Powered', 'Apps'],
+    text: ['We build LLM apps, agents', 'and copilots for your business'],
     layers: {
       title: { x: -343, y: -95 },
       text: { x: -344, y: 46, delay: 850 },
@@ -11,8 +11,8 @@ export const heroSlides = [
   },
   {
     image: { src: '/images/Depositphotos_42929589_original.jpg', width: 2300, height: 1533, offsetX: -100 },
-    title: ['Launch your', 'product'],
-    text: ['Launch you dream project', 'with expert Agile team'],
+    title: ['AI Strategy to', 'Production'],
+    text: ['Expert AI consulting to take', 'you from idea to impact'],
     layers: {
       title: { x: 344, y: -90 },
       text: { x: 344, y: 56, delay: 1100 },
@@ -21,39 +21,51 @@ export const heroSlides = [
   },
 ];
 
+export const whatWeDo =
+  'We help businesses put Generative AI and Large Language Models to work. From identifying the right use cases to shipping secure, production-grade AI apps, our team turns AI potential into measurable results.';
+
 export const servicesIntro =
-  'With niche expertise in core tech domains, we at TechUp9 are highly-efficient in providing expert services related to core web development, mobile app development, artificial intelligence, IoT, machine learning big data and analytics. Having a specialist team for catering to personalized requirements, we bring technical excellence within the reach of every brand, business and entrepreneur.';
+  'TechUp9 is an AI-first product and consulting studio. We design, build and run applications powered by Large Language Models (LLMs) - from intelligent assistants and autonomous agents to AI features inside your existing products. Our consultants help you choose the right use cases, models and architecture so your AI investments are safe, scalable and deliver real business value.';
 
 export const services = [
   {
-    title: 'Business/Technology Consulting',
-    text: 'In an age of fast transformation, investing in technology is essential to beat competition and stay relevant. With the help of our insightful enterprise consulting services, you can identify valuable opportunities to integrate latest technologies into your existing business processes. Our niche-specific tech experts will identify the processes that need improvement and employ their deep knowledge to provide insightful business technology consulting to make your processes much more efficient.',
+    title: 'AI Strategy & Consulting',
+    text: 'Not sure where AI fits in your business? Our consultants assess your processes, data and goals to identify high-impact Generative AI use cases, estimate ROI and define a practical roadmap. We advise on build vs. buy, model selection (OpenAI, Azure OpenAI, Anthropic, Gemini, open-source), cost, security and responsible AI governance.',
   },
   {
-    title: 'Digital Transformation',
-    text: 'Transitioning from paper-based or mechanical processes for digital excellence can be a tiring and confusing job. Having knowledge of making enterprises better by infusion of technology, our experts can drive your digital business transformation efforts and help you create an organization for the future.',
+    title: 'Custom LLM Applications',
+    text: 'We build production-ready applications on top of Large Language Models - chatbots, knowledge assistants, document Q&A, content generation and summarization tools. Using Retrieval-Augmented Generation (RAG), we ground answers in your own data so responses are accurate, up to date and secure.',
   },
   {
-    title: 'Web Development Services',
-    text: 'With massive experience in developing highly-engaging web portals, we boast of being one of the finest website development companies in India. Our expert developers are equipped with the expertise to develop websites using all the latest frameworks and architectures including Java, PHP, Python, AngularJS, HTML5, among others. Having full-suite capabilities to develop websites from scratch, we listen to your custom requirements and take full responsibility for making your website development project successful.',
+    title: 'AI Agents & Automation',
+    text: 'Go beyond chat with AI agents that take action. We design agentic workflows that connect LLMs to your tools, APIs and databases to automate support, operations, sales and back-office tasks - with human-in-the-loop controls where it matters.',
   },
   {
-    title: 'IoT App Development',
-    text: 'Internet of Things (IoT) has revolutionized all business segments owing to the promise of a connected future. With an expert team of trained IoT developers, we can empower the IoT app development process efficiently. Starting from identification of a problem, we devise a working solution, guide on hardware selection, build a powerful platform, test and deploy efficiently-working IoT apps according to requirements.',
+    title: 'AI Copilots for Your Product',
+    text: 'Add AI features to your existing web and mobile apps: natural-language search, smart assistants, recommendations, auto-fill and insights. We integrate LLM capabilities seamlessly into your product so your users get more done with less effort.',
   },
   {
-    title: 'AI & ML Implementation',
-    text: 'Artificial Intelligence is redefining visions for the future. Using our niche experience in artificial intelligence development, we identify ways of utilizing artificial intelligence for your business. Analyzing opportunities to automate processes by evaluating your existing operations, we move forward with machine learning development and implementation to endow your business with automation benefits.',
+    title: 'Fine-Tuning & Evaluation',
+    text: 'When off-the-shelf models are not enough, we fine-tune and optimize models for your domain. We set up evaluation pipelines to measure quality, accuracy, safety and cost, and use prompt engineering and guardrails to keep outputs reliable.',
   },
   {
-    title: 'Analytics & Big Data',
-    text: 'In a connected world, no business can dominate the industry without having data analytics capabilities. Our energized business analytics solutions supercharge your business decisions by adding the power of value-based data. By using our expertise, we endow your organization to possess capabilities to capture, analyze and make sense of the vast amounts of data generated every day.',
+    title: 'LLMOps & AI Infrastructure',
+    text: 'We deploy and operate AI systems in the cloud with monitoring, tracing, cost controls, caching and security built in. From vector databases to model gateways, we make sure your AI apps are scalable, observable and enterprise-ready.',
   },
   {
-    title: 'Mobile App Development',
-    text: 'Our core philosophy of catering to differentiated requirements of our clients has powered our mobile app development team from the beginning. Enriched with the ability to spearhead custom mobile application development process, our experts can help you design, develop, test and deploy successful iOS Apps, Android Apps, Xamarin Apps, Flutter Apps and React Native Apps utilizing the best development practices.',
+    title: 'Data Readiness & Analytics',
+    text: 'Great AI starts with great data. We help you collect, clean, structure and govern your data, build pipelines and embeddings, and turn analytics into AI-driven insights that power better business decisions.',
   },
 ];
+
+const processIcons = ['icon-magnifier52', 'icon-lab3', 'icon-settings49', 'icon-graphic51'];
+
+export const process = [
+  ['DISCOVER', 'Workshops to understand your goals, data and processes, and identify the highest-value AI use cases.'],
+  ['PROTOTYPE', 'Rapid proof-of-concept with real data in weeks, so you can validate value before investing further.'],
+  ['BUILD', 'Production-grade LLM apps and agents with security, guardrails, evaluation and integrations built in.'],
+  ['SCALE', 'Deploy, monitor and continuously improve with LLMOps, cost optimization and team enablement.'],
+].map(([title, text], i) => ({ title, text, icon: processIcons[i] }));
 
 const valueIcons = ['icon-timer4', 'icon-heart369', 'icon-pie-chart11', 'icon-briefcase74'];
 

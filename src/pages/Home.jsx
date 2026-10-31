@@ -1,6 +1,7 @@
+import { Link } from 'react-router';
 import HeroSlider from '../components/HeroSlider.jsx';
 import ServicesCarousel from '../components/ServicesCarousel.jsx';
-import { heroSlides, services, servicesIntro, values } from '../data/site.js';
+import { heroSlides, process, services, servicesIntro, values, whatWeDo } from '../data/site.js';
 import { usePage } from '../hooks/usePage.js';
 
 const BODY_CLASS =
@@ -15,18 +16,17 @@ function WhatWeDo() {
             <div className="sc_call_to_action_info">
               <h6 className="sc_call_to_action_subtitle sc_item_subtitle">what we do</h6>
               <div className="sc_call_to_action_descr sc_item_descr">
-                We like to call ourselves as “Idea Nurturers”.<br />
-                We are a bunch of individuals for whom technology and digitalization are a passion. Solving the challenges of
-                every day life with technological enhancements keeps us driving.
+                AI &amp; LLM apps, built right.<br />
+                {whatWeDo}
               </div>
               <div className="sc_call_to_action_buttons sc_item_buttons">
                 <div className="sc_call_to_action_button sc_item_button">
-                  <a
-                    href="#"
+                  <Link
+                    to={{ pathname: '/', hash: '#our-process' }}
                     className="sc_button sc_button_square sc_button_style_filled sc_button_size_small sc_button_iconed icon-right margin_bottom_m20"
                   >
-                    About Company
-                  </a>
+                    How We Work
+                  </Link>
                 </div>
               </div>
             </div>
@@ -53,36 +53,33 @@ function OurServices() {
   );
 }
 
-function OurValues() {
-  const rows = [values.slice(0, 4), values.slice(4, 8)];
+function IconGrid({ id, title, description, items }) {
+  const rows = [];
+  for (let i = 0; i < items.length; i += 4) rows.push(items.slice(i, i + 4));
   return (
-    <section className="grey_section">
+    <section className="grey_section" id={id}>
       <div className="container">
         <div className="content_wrap">
           <div className="sc_services_wrap">
             <div className="sc_services sc_services_style_services-1 sc_services_type_icons sc_slider_nopagination sc_slider_nocontrols responsive_margins">
-              <h2 className="sc_services_title sc_item_title">Our Values</h2>
-              <div className="sc_services_descr sc_item_descr">
-                Values are integral part of company.
-                <br />
-                As bunch of individuals, we adhere to following values.
-              </div>
+              <h2 className="sc_services_title sc_item_title">{title}</h2>
+              <div className="sc_services_descr sc_item_descr">{description}</div>
               {rows.map((row, r) => (
                 <div className="sc_columns columns_wrap" key={r}>
-                  {row.map((value, i) => (
-                    <div className="column-1_4 column_padding_bottom" key={value.title}>
+                  {row.map((item, i) => (
+                    <div className="column-1_4 column_padding_bottom" key={item.title}>
                       <div
                         className={`sc_services_item sc_services_item_${i + 1} ${i % 2 ? 'even' : 'odd'}${i === 0 ? ' first' : ''}`}
                       >
                         <a href="#" className="sc_services_icon">
-                          <span className={`sc_icon ${value.icon}`}> </span>
+                          <span className={`sc_icon ${item.icon}`}> </span>
                         </a>
                         <div className="sc_services_item_content">
                           <h5 className="sc_services_item_title">
-                            <a href="#">{value.title}</a>
+                            <a href="#">{item.title}</a>
                           </h5>
                           <div className="sc_services_item_description">
-                            <p>{value.text}</p>
+                            <p>{item.text}</p>
                           </div>
                         </div>
                       </div>
@@ -99,7 +96,7 @@ function OurValues() {
 }
 
 export default function Home() {
-  usePage({ bodyClass: BODY_CLASS });
+  usePage({ title: 'AI & LLM App Development and Consulting', bodyClass: BODY_CLASS });
 
   return (
     <>
@@ -111,8 +108,29 @@ export default function Home() {
               <div className="post_content">
                 <WhatWeDo />
                 <OurServices />
-                <WhatWeDo />
-                <OurValues />
+                <IconGrid
+                  id="our-process"
+                  title="Our Process"
+                  description={
+                    <>
+                      A proven path from AI idea to production.
+                      <br />
+                      Fast prototypes, measurable results, enterprise-grade delivery.
+                    </>
+                  }
+                  items={process}
+                />
+                <IconGrid
+                  title="Our Values"
+                  description={
+                    <>
+                      Values are integral part of company.
+                      <br />
+                      As bunch of individuals, we adhere to following values.
+                    </>
+                  }
+                  items={values}
+                />
               </div>
             </article>
           </div>
