@@ -1,6 +1,6 @@
 # Agent guidance
 
-This is a single-page React site for TechUp9's IT consulting and software
+This is a React marketing site for TechUp9's IT consulting and software
 engineering services. See [README.md](README.md) for setup, project structure,
 and deployment.
 
@@ -12,7 +12,9 @@ and deployment.
   backgrounds.
 - The design is static. Do not add animations, transitions, sliders, or
   carousels unless a task asks for them.
-- Put content in `src/data/site.js` and layout in `src/pages/Home.jsx`. Use
+- Put content in `src/data/site.js` and layout in `src/pages/`. Case studies
+  live in the `caseStudies` array and render at `/case-studies/:slug`; only
+  state client facts and results that have been confirmed. Use
   `lucide-react` for icons and keep images in `public/images/`.
 - Position IT consulting and software engineering (AWS, apps, backend, data
   pipelines, analytics) as the core offer; AI/ML is one service among them.
@@ -21,11 +23,20 @@ and deployment.
   catch-all and the generated `dist/404.html` static-host fallback. Hash
   navigation is handled in `src/components/Layout.jsx`; keep section IDs unique
   and in sync with `NAV_ITEMS` in `src/components/Header.jsx`.
+- Pages are prerendered at build time by `scripts/prerender.js` and hydrated
+  in the browser, so components must render the same output on the server and
+  the client: no `window` or `document` access during render, and no
+  time-dependent output without `suppressHydrationWarning`.
+- Page metadata and JSON-LD live in `src/seo.js`. When adding a route, add it
+  to `pages` there so it gets head tags, a prerendered file, and sitemap and
+  `llms.txt` entries.
 
 ## Validation
 
 - Run `npm run build` for source or style changes. There are currently no test
-  or lint scripts in `package.json`.
-- For UI changes, check the page at desktop and mobile widths, including the
+  or lint scripts in `package.json`. For SEO changes, check the generated HTML,
+  `sitemap.xml`, and `llms.txt` in `dist/`, and check the browser console for
+  hydration errors under `npm run preview`.
+- For UI changes, check affected pages at desktop and mobile widths, including the
   mobile menu and hash links. For routing changes, check direct page loads and
   old URLs on a host with SPA fallback configured.

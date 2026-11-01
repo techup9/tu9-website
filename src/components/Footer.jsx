@@ -39,7 +39,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <p>© {new Date().getFullYear()} TechUp9. All rights reserved.</p>
+        {/* The year can differ from the prerendered HTML after a new year starts. */}
+        <p suppressHydrationWarning>© {new Date().getFullYear()} TechUp9. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -5,15 +5,13 @@ import {
   Check,
   Cloud,
   Compass,
-  Mail,
   MonitorSmartphone,
-  Phone,
   Server,
   Sparkles,
   Workflow,
 } from 'lucide-react';
-import { contact, hero, principles, process, sections, services } from '../data/site.js';
-import { usePageTitle } from '../hooks/usePage.js';
+import ContactCta from '../components/ContactCta.jsx';
+import { caseStudies, hero, principles, process, sections, services } from '../data/site.js';
 
 const SERVICE_ICONS = {
   compass: Compass,
@@ -107,9 +105,41 @@ function Services() {
   );
 }
 
+function Work() {
+  return (
+    <section className="section section-tinted" id="work">
+      <div className="container">
+        <SectionHeading {...sections.work} />
+        {caseStudies.map((study) => (
+          <article className="story-card" key={study.slug}>
+            <div>
+              <p className="story-card-client">
+                {study.client} &middot; {study.product}
+              </p>
+              <h3>{study.title}</h3>
+              <p>{study.summary}</p>
+              <Link to={`/case-studies/${study.slug}`} className="btn btn-primary">
+                Read the case study <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
+            <dl className="story-card-stats">
+              {study.stats.map((stat) => (
+                <div key={stat.label}>
+                  <dt>{stat.label}</dt>
+                  <dd>{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Approach() {
   return (
-    <section className="section section-tinted" id="approach">
+    <section className="section" id="approach">
       <div className="container">
         <SectionHeading {...sections.approach} />
         <ol className="steps">
@@ -128,7 +158,7 @@ function Approach() {
 
 function WhyUs() {
   return (
-    <section className="section" id="why-us">
+    <section className="section section-tinted" id="why-us">
       <div className="container">
         <SectionHeading {...sections.whyUs} />
         <div className="principles">
@@ -144,39 +174,15 @@ function WhyUs() {
   );
 }
 
-function Contact() {
-  return (
-    <section className="section" id="contact">
-      <div className="container">
-        <div className="cta">
-          <div>
-            <h2>Have a project in mind?</h2>
-            <p>Tell us about your goals. We&apos;ll get back to you within one business day.</p>
-          </div>
-          <div className="cta-actions">
-            <a href={`mailto:${contact.email}`} className="btn btn-light">
-              <Mail size={18} aria-hidden="true" /> {contact.email}
-            </a>
-            <a href={contact.phoneHref} className="btn btn-outline-light">
-              <Phone size={18} aria-hidden="true" /> {contact.phone}
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function Home() {
-  usePageTitle('IT Consulting & Software Engineering');
-
   return (
     <>
       <Hero />
       <Services />
+      <Work />
       <Approach />
       <WhyUs />
-      <Contact />
+      <ContactCta id="contact" />
     </>
   );
 }
