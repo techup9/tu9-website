@@ -99,7 +99,12 @@ scripts/prerender.js    prerenders pages and writes sitemap, robots, and llms fi
 
 ## Deployment
 
-Build the site and publish the contents of `dist/` to a static host. The host
+The site deploys to GitHub Pages through `.github/workflows/deploy.yml`. Each
+push to `main` runs `npm ci`, `npm run build`, and publishes `dist/`. In the
+repository settings, set Pages > Source to "GitHub Actions". `public/CNAME`
+sets the custom domain, so DNS must point the domain at GitHub Pages.
+
+For other hosts, build the site and publish the contents of `dist/`. The host
 must serve `case-studies/<slug>.html` for the clean URL
 `/case-studies/<slug>`. GitHub Pages, Netlify, and Cloudflare Pages do this by
 default; with nginx, use `try_files $uri $uri.html /404.html;`.
